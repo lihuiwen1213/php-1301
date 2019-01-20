@@ -1,3 +1,8 @@
+##启动
+php yii serve --port=8888
+##地址
+http://localhost:8888/index.php?r=country/index
+
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
