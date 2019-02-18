@@ -1,4 +1,4 @@
-<h2>启动</h2>
+<h2>启动 </h2>
 php yii serve --port=8888
 <h2>地址</h2>
 http://localhost:8888/index.php?r=country/index
