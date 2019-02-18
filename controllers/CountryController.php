@@ -16,6 +16,14 @@ class CountryController extends Controller
             'posts'=>$posts
         ]);
     }
+    public function actionIndexjson()
+    {
+        $posts = Yii::$app->db->createCommand('SELECT * FROM book')
+            ->queryAll();
+        $response = Yii::$app->response;
+        $response->format = \yii\web\Response::FORMAT_JSON;
+        $response->data = ['message' => $posts];
+    }
     public function actionAdd()
     {
         $model = new BookForm;
@@ -31,6 +39,17 @@ class CountryController extends Controller
         }else{
             return $this->render('add',['model'=>$model]);
         }
+    }
+    public function actionAddjson()
+    {
+        $model = new BookForm;
+        $data = YII::$app->db->createCommand()->insert('book', [
+            'book_name' => $model['name'],
+            'author' => $model['author'],
+        ])->execute();
+        $response = Yii::$app->response;
+        $response->format = \yii\web\Response::FORMAT_JSON;
+        $response->data = ['message' => $data];
     }
     public function actionDelete()
     {
