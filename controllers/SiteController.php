@@ -151,4 +151,14 @@ class SiteController extends Controller
         }
     }
 
+    /**
+     * say hello
+     */
+    public function actionJson($message = 'Hello')
+    {
+        $response = Yii::$app->response;
+        $response->format = \yii\web\Response::FORMAT_JSON;
+        $response->data = ['message' => 'hello world'];
+    }
+
 }
